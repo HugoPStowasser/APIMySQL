@@ -21,7 +21,6 @@ namespace APIMySQL.Controllers
             _context = context;
         }
 
-        // GET: api/Estados
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Estado>>> GetEstado()
         {
@@ -32,7 +31,6 @@ namespace APIMySQL.Controllers
             return await _context.Estado.ToListAsync();
         }
 
-        // GET: api/Estados/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Estado>> GetEstado(string id)
         {
@@ -50,8 +48,6 @@ namespace APIMySQL.Controllers
             return estado;
         }
 
-        // PUT: api/Estados/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEstado(string id, Estado estado)
         {
@@ -81,8 +77,6 @@ namespace APIMySQL.Controllers
             return NoContent();
         }
 
-        // POST: api/Estados
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Estado>> PostEstado(Estado estado)
         {
@@ -110,7 +104,6 @@ namespace APIMySQL.Controllers
             return CreatedAtAction("GetEstado", new { id = estado.Sigla }, estado);
         }
 
-        // DELETE: api/Estados/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEstado(string id)
         {
