@@ -1,6 +1,16 @@
+using APIMySQL.Data;
+using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var connectionStringMySql = builder.Configuration.GetConnectionString("ConnectionMySql");
+builder.Services.AddDbContext<APIDbContext>(x => x.UseMySql(
+    connectionStringMySql,
+    ServerVersion.AutoDetect(connectionStringMySql)
+    )
+);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
